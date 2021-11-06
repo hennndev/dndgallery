@@ -1,15 +1,15 @@
 import firebase from 'firebase/compat/app'
-import 'firebase/firestore'
-import 'firebase/auth'
-import 'firebase/storage'
+import 'firebase/compat/firestore'
+import 'firebase/compat/auth'
+import 'firebase/compat/storage'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDoM2TilD-_h77PjLfXyDehq65HOWBXsn8",
-    authDomain: "gallery-b373c.firebaseapp.com",
-    projectId: "gallery-b373c",
-    storageBucket: "gallery-b373c.appspot.com",
-    messagingSenderId: "987496383053",
-    appId: "1:987496383053:web:f94061a898af3405d4d204"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_ID
   };
   
   // Initialize Firebase
@@ -18,5 +18,6 @@ firebase.initializeApp(firebaseConfig);
 const storage = firebase.storage()
 const auth = firebase.auth()
 const db = firebase.firestore()
+const timestamp = firebase.firestore.FieldValue.serverTimestamp
 
-export { storage, auth, db }
+export { storage, auth, db, timestamp }
